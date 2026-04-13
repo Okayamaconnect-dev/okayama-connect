@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="イベント事業の詳細。テクノロジーを活用した地域密着型のイベント企画・プロデュース、会場運営、集客支援まで包括的に提供します。">
+    <meta name="keywords" content="イベント企画,イベント運営,テクノロジー,岡山,地域活性化">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="イベント事業 | 株式会社岡山コネクト">
+    <meta property="og:description" content="テクノロジーを活用した地域密着型のイベント企画・プロデュースを実施しています。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://okayamaconnect.com/business/event.html">
+    <meta property="og:image" content="https://okayamaconnect.com/og-image.png">
+
+    <title>イベント事業 | 株式会社岡山コネクト</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        :root {
+            --primary: #1a5276;
+            --accent: #e67e22;
+            --light-gray: #f8f9fa;
+            --dark-text: #2c3e50;
+            --border-color: #e0e0e0;
+        }
+
+        /* ============ OVERVIEW SECTION ============ */
+        .overview-section {
+            padding: 60px 2rem;
+            background: white;
+        }
+
+        .overview-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .overview-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--gray-100);
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        .overview-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 2rem;
+        }
+
+        /* ============ SERVICES SECTION ============ */
+        .services-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, rgba(26, 82, 118, 0.03) 0%, rgba(230, 126, 34, 0.03) 100%);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+
+        .services-header p {
+            color: var(--gray-500);
+            font-size: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* ============ EVENT TYPES SECTION ============ */
+        .event-types-section {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .event-types-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .event-types-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+
+        .event-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-type-card {
+            background: linear-gradient(135deg, var(--light-gray) 0%, white 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .event-type-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.15);
+        }
+
+        .event-type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-type-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.8rem;
+        }
+
+        .event-type-card p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* ============ ANIMATIONS ============ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .event-type-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .event-type-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .event-type-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 900px) {
+            .services-grid,
+            .event-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .overview-intro {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+
+            .services-header h2,
+            .event-types-header h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <div class="logo-mark">O</div>
+                <div class="logo-text">岡山<span>コネクト</span></div>
+            </a>
+            <nav class="nav-links">
+                <a href="/">ホーム</a>
+                <a href="/business/" class="active">事業紹介</a>
+                <a href="/about/">企業情報</a>
+                <a href="/contact/">お問い合わせ</a>
+            </nav>
+            <a href="/contact/" class="nav-contact">お問い合わせ</a>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-nav">
+        <a href="/">ホーム</a>
+        <a href="/business/">事業紹介</a>
+        <a href="/about/">企業情報</a>
+        <a href="/contact/">お問い合わせ</a>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>イベント事業</h1>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <a href="/">ホーム</a>
+            <span>/</span>
+            <a href="/business/">事業紹介</a>
+            <span>/</span>
+            <span>イベント事業</span>
+        </div>
+    </div>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="overview-content">
+            <div class="overview-intro">
+                <strong>テクノロジーを活用した地域密着型のイベント企画・プロデュース</strong>
+            </div>
+            <div class="overview-text">
+                <p>当社のイベント事業は、岡山地域の活性化とコミュニティの発展を目指し、企画段階から実施運営まで、総合的なイベントプロデュースサービスを提供しています。</p>
+                <p>セミナー、展示会、交流イベント、地域活性化イベントなど、様々なタイプのイベントに対応。テクノロジーを活用した新しい体験提供や、オンライン・オフラインのハイブリッド開催など、多角的な視点からイベントを企画・実行いたします。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-inner">
+            <div class="services-header">
+                <h2>提供サービス</h2>
+                <p>イベント実現に向けた包括的なサービスを提供しています</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🎯 イベント企画・プロデュース</h3>
+                    <p>コンセプト立案から実施まで、イベントのすべてをご提案。クライアントの目的達成をサポートします。</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏢 会場手配・運営管理</h3>
+                    <p>最適な会場選定から当日の運営管理まで。スムーズで安心なイベント運営を実現します。</p>
+                </div>
+                <div class="service-card">
+                    <h3>💡 テクノロジー活用演出</h3>
+                    <p>AR・VR、ライブ配信、デジタルサイネージなど、最新技術を活用した臨場感あふれる演出。</p>
+                </div>
+                <div class="service-card">
+                    <h3>📢 集客・プロモーション支援</h3>
+                    <p>SNSマーケティング、メディア手配、参加者募集など、イベント集客の全面サポート。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Types Section -->
+    <section class="event-types-section">
+        <div class="section-inner">
+            <div class="event-types-header">
+                <h2>実施イベント例</h2>
+            </div>
+            <div class="event-types-grid">
+                <div class="event-type-card">
+                    <div class="event-type-icon">🎓</div>
+                    <h3>セミナー・講演会</h3>
+                    <p>ビジネスセミナー、技術講演会、トークイベントなど、様々な形式のセミナーを企画・運営いたします。</p>
+                </div>
+                <div class="event-type-card">
+                    <div class="event-type-icon">🏆</div>
+                    <h3>展示会・商談会</h3>
+                    <p>企業プロモーション、新商品発表会、B2Bマッチングイベントなど、ビジネス機会創出をサポート。</p>
+                </div>
+                <div class="event-type-card">
+                    <div class="event-type-icon">🤝</div>
+                    <h3>交流・ネットワーキングイベント</h3>
+                    <p>異業種交流会、起業家交流会、コミュニティ活動など、人と人をつなぐイベントを実現します。</p>
+                </div>
+                <div class="event-type-card">
+                    <div class="event-type-icon">🎪</div>
+                    <h3>地域活性化イベント</h3>
+                    <p>街おこしイベント、フェスティバル、地域親睦イベントなど、地域コミュニティの活性化を推進。</p>
+                </div>
+                <div class="event-type-card">
+                    <div class="event-type-icon">🎬</div>
+                    <h3>オンラインイベント</h3>
+                    <p>ウェビナー、オンライン展示会、ライブ配信イベントなど、デジタル時代のイベント開催をサポート。</p>
+                </div>
+                <div class="event-type-card">
+                    <div class="event-type-icon">🔀</div>
+                    <h3>ハイブリッドイベント</h3>
+                    <p>オンラインとオフラインの融合。より多くの参加者に価値を提供するイベント開催を実現します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-inner">
+            <h2>イベント企画についてのお問い合わせ</h2>
+            <p>イベント企画・運営に関するご相談やご質問がございましたら、お気軽にお問い合わせください。</p>
+            <a href="/contact/" class="btn-white">お問い合わせはこちら</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-mark">O</div>
+                    <div class="logo-text">岡山<span>コネクト</span></div>
+                </div>
+                <p>テクノロジーと人をつなげる。岡山発の3つのビジネスで、新しい「つながり」を創出します。</p>
+            </div>
+            <div class="footer-col">
+                <h4>事業</h4>
+                <ul>
+                    <li><a href="/business/app-dev.html">アプリ開発事業</a></li>
+                    <li><a href="/business/event.html">イベント事業</a></li>
+                    <li><a href="/business/real-estate.html">不動産事業</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>企業</h4>
+                <ul>
+                    <li><a href="/about/">企業情報</a></li>
+                    <li><a href="/about/">代表メッセージ</a></li>
+                    <li><a href="/about/">アクセス</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サポート</h4>
+                <ul>
+                    <li><a href="/contact/">お問い合わせ</a></li>
+                    <li><a href="/privacy/">プライバシーポリシー</a></li>
+                    <li><a href="/terms/">利用規約</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 株式会社岡山コネクト. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

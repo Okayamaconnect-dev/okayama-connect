@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="株式会社岡山コネクトへのお問い合わせページ。アプリ開発、イベント、不動産に関するご質問・ご相談を承ります。">
+  <meta name="keywords" content="お問い合わせ, 岡山, 問い合わせフォーム, 相談">
+  <meta name="og:title" content="お問い合わせ | 株式会社岡山コネクト">
+  <meta name="og:description" content="株式会社岡山コネクトへのお問い合わせページです。ご質問やご相談はこちらからお気軽にお問い合わせください。">
+  <meta name="og:type" content="website">
+  <title>お問い合わせ | 株式会社岡山コネクト</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-form-wrapper {
+      background-color: var(--bg-white);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .required::after {
+      content: ' *';
+      color: var(--accent);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      transition: border-color var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231a5276' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: -16px;
+    }
+
+    .contact-info {
+      background-color: var(--bg-light);
+      padding: 40px;
+      border-radius: 8px;
+    }
+
+    .contact-info h3 {
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .contact-info-item {
+      margin-bottom: 32px;
+    }
+
+    .contact-info-item h4 {
+      font-size: 14px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .contact-info-item p {
+      font-size: 16px;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    .contact-info-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .contact-info-item a:hover {
+      color: var(--accent);
+    }
+
+    .response-time {
+      background-color: var(--bg-white);
+      padding: 16px;
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      margin-top: 24px;
+    }
+
+    .response-time h4 {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .response-time p {
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 1024px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-info {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        gap: 30px;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-size: 16px;
+      }
+
+      .contact-info {
+        padding: 24px;
+      }
+
+      .contact-info h3 {
+        font-size: 20px;
+      }
+    }
+
+    /* Success Message */
+    .success-message {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 16px;
+      border-radius: 4px;
+      border: 1px solid #c3e6cb;
+      margin-bottom: 24px;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-mark">OC</div>
+        <span class="logo-text">岡山コネクト</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">ホーム</a></li>
+          <li><a href="/business/">事業内容</a></li>
+          <li><a href="/about/">会社概要</a></li>
+          <li><a href="/contact/" class="nav-contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <a href="/">ホーム</a>
+      <a href="/business/">事業内容</a>
+      <a href="/about/">会社概要</a>
+      <a href="/contact/">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <h1>お問い合わせ</h1>
+    <p>Contact</p>
+  </section>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="/">ホーム</a><span>></span><span>お問い合わせ</span>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-header" style="margin-bottom: 50px;">
+          <span class="section-label">Get In Touch</span>
+          <h2>お問い合わせ</h2>
+          <p>ご質問、ご相談、お仕事のご依頼など、お気軽にお問い合わせください</p>
+        </div>
+
+        <div class="contact-container fade-in">
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <div class="success-message" id="successMessage">
+              <strong>送信完了しました！</strong> ご返信までお待ちください。
+            </div>
+
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="form-group">
+                <label for="name" class="required">お名前</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="required">メールアドレス</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">電話番号</label>
+                <input type="tel" id="phone" name="phone">
+                <p class="form-note">ハイフンなしで入力してください</p>
+              </div>
+
+              <div class="form-group">
+                <label for="category" class="required">お問い合わせ種別</label>
+                <select id="category" name="category" required>
+                  <option value="">選択してください</option>
+                  <option value="app">アプリ開発について</option>
+                  <option value="event">イベントについて</option>
+                  <option value="realestate">不動産について</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="required">お問い合わせ内容</label>
+                <textarea id="message" name="message" required placeholder="具体的な内容をお書きください。"></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary form-submit">送信する</button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info fade-in">
+            <h3>お問い合わせ情報</h3>
+
+            <div class="contact-info-item">
+              <h4>メール</h4>
+              <p>
+                <a href="mailto:info@okayamaconnect.com">info@okayamaconnect.com</a>
+              </p>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>住所</h4>
+              <p>
+                岡山県岡山市<br>
+                <small style="color: var(--text-light);">詳細はお問い合わせください</small>
+              </p>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>営業時間</h4>
+              <p>
+                平日 10:00～18:00<br>
+                <small style="color: var(--text-light);">土日祝日を除く</small>
+              </p>
+            </div>
+
+            <div class="response-time">
+              <h4>ご返信について</h4>
+              <p>お問い合わせいただいた内容に対して、通常2～3営業日以内にご返信させていただきます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="section-inner">
+      <div class="cta-section fade-in">
+        <h2>お急ぎの場合はメールでお気軽に</h2>
+        <p>メールでのお問い合わせもご利用いただけます。<br>迅速にご対応させていただきます。</p>
+        <a href="mailto:info@okayamaconnect.com" class="btn-primary">メールで送信</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <div class="logo-mark">OC</div>
+          <span class="logo-text">岡山コネクト</span>
+        </a>
+        <p>テクノロジーで人と街をつなげる。株式会社岡山コネクトは、アプリ開発、イベント事業、不動産事業を通じて岡山の地域社会に貢献しています。</p>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>ナビゲーション</h3>
+          <ul>
+            <li><a href="/">ホーム</a></li>
+            <li><a href="/business/">事業内容</a></li>
+            <li><a href="/about/">会社概要</a></li>
+            <li><a href="/contact/">お問い合わせ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>事業内容</h3>
+          <ul>
+            <li><a href="/business/">アプリ開発事業</a></li>
+            <li><a href="/business/">イベント事業</a></li>
+            <li><a href="/business/">不動産事業</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>お問い合わせ</h3>
+          <p>
+            メール: <a href="mailto:info@okayamaconnect.com">info@okayamaconnect.com</a><br>
+            住所: 岡山県岡山市<br>
+            (詳細はお問い合わせください)
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Okayama Connect Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Contact form submission handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('successMessage');
+
+      if (contactForm) {
+        // Update form action with actual Formspree ID when available
+        // For now, using placeholder - replace with actual form ID
+
+        contactForm.addEventListener('submit', function(e) {
+          // Form will submit to Formspree
+          // Optionally show success message after a brief delay
+          setTimeout(function() {
+            successMessage.classList.add('show');
+            contactForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(function() {
+              successMessage.classList.remove('show');
+            }, 5000);
+          }, 500);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
