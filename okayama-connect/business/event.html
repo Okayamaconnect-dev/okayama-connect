@@ -157,6 +157,51 @@
             margin-bottom: 1rem;
         }
 
+        .event-type-icon img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .event-type-card-photo {
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .event-type-card-photo:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.15);
+        }
+
+        .event-type-card-photo img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .event-type-card-photo .card-text {
+            padding: 1.5rem;
+        }
+
+        .event-type-card-photo h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.8rem;
+        }
+
+        .event-type-card-photo p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
         .event-type-card h3 {
             font-size: 1.15rem;
             font-weight: 600;
@@ -168,6 +213,167 @@
             font-size: 0.95rem;
             color: var(--gray-700);
             line-height: 1.7;
+        }
+
+        /* ============ TRACK RECORD SECTION ============ */
+        .track-record-section {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, rgba(26, 82, 118, 0.03) 0%, rgba(230, 126, 34, 0.03) 100%);
+        }
+
+        .track-record-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .track-record-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .track-record-header p {
+            color: var(--gray-500);
+            font-size: 1rem;
+        }
+
+        .track-record-summary {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .summary-stat {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            min-width: 160px;
+        }
+
+        .summary-stat .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .summary-stat .label {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-top: 0.3rem;
+        }
+
+        .event-history-group {
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .event-history-group h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .history-table thead th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .history-table tbody td {
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .history-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .history-table tbody tr:hover {
+            background: rgba(230, 126, 34, 0.06);
+        }
+
+        .history-table tfoot td {
+            padding: 12px 16px;
+            text-align: center;
+            font-weight: 700;
+            background: #eaf2f8;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .cancelled-row td {
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .monthly-table thead th {
+            background: #8e44ad;
+        }
+
+        .monthly-table tfoot td {
+            background: #f0e6f6;
+            color: #8e44ad;
+        }
+
+        .online-table thead th {
+            background: #2c3e50;
+        }
+
+        .online-table tfoot td {
+            background: #e8eef4;
+            color: #2c3e50;
+        }
+
+        .fire-table thead th {
+            background: var(--accent);
+        }
+
+        .fire-table tfoot td {
+            background: #fef0e0;
+            color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            .track-record-summary {
+                gap: 1rem;
+            }
+            .summary-stat {
+                min-width: 130px;
+                padding: 1rem 1.2rem;
+            }
+            .summary-stat .number {
+                font-size: 1.8rem;
+            }
+            .history-table thead th,
+            .history-table tbody td,
+            .history-table tfoot td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
         }
 
         /* ============ ANIMATIONS ============ */
@@ -294,8 +500,8 @@
     <section class="services-section">
         <div class="section-inner">
             <div class="services-header">
-                <h2>提供サービス</h2>
-                <p>イベント実現に向けた包括的なサービスを提供しています</p>
+                <h2>わたしたちがやっていること</h2>
+                <p>さまざまなイベントを通じて、人と人のつながりを生み出しています</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -303,16 +509,16 @@
                     <p>業種を超えたビジネスパーソンの出会いの場を創出。新しいビジネス機会や人脈構築をサポートします。</p>
                 </div>
                 <div class="service-card">
-                    <h3>🌅 朝活・勉強会の企画</h3>
-                    <p>朝の時間を活用した勉強会や交流イベント。生産性の高い環境で人脈形成をサポート。</p>
+                    <h3>🌅 朝活の企画</h3>
+                    <p>朝の時間を活用した交流イベント。気持ちいい朝の時間を共有しながら人脈を広げられます。</p>
                 </div>
                 <div class="service-card">
-                    <h3>🎲 ボードゲーム会・飲み会の運営</h3>
-                    <p>ゲームやカジュアルな雰囲気を通じて自然に仲良くなれる場。気軽に参加できるイベント運営。</p>
+                    <h3>🎲 ボードゲーム会の運営</h3>
+                    <p>ゲームを通じて自然に仲良くなれる場。堅苦しくない雰囲気で気軽に参加できるイベント運営。</p>
                 </div>
                 <div class="service-card">
-                    <h3>💻 IT交流会・テック系イベントの企画</h3>
-                    <p>エンジニアやデザイナー同士の技術交流。業界の最新情報共有と人脈構築の場を提供。</p>
+                    <h3>🔥 焚き火ケーションの企画</h3>
+                    <p>河川敷で焚き火を囲みながらゆっくり交流。非日常の空間でリラックスしてつながれます。</p>
                 </div>
             </div>
         </div>
@@ -325,37 +531,191 @@
                 <h2>実施イベント例</h2>
             </div>
             <div class="event-types-grid">
-                <div class="event-type-card">
-                    <div class="event-type-icon">🤝</div>
-                    <h3>異業種交流会</h3>
-                    <p>業種を超えた出会いとつながりの場。新しいビジネスチャンスや人脈構築の機会を提供します。</p>
+                <div class="event-type-card-photo">
+                    <img src="../images/event-cafe.jpg" alt="カフェ会の様子">
+                    <div class="card-text">
+                        <h3>異業種交流会（カフェ会）</h3>
+                        <p>業種を超えた出会いとつながりの場。新しいビジネスチャンスや人脈構築の機会を提供します。</p>
+                    </div>
                 </div>
-                <div class="event-type-card">
-                    <div class="event-type-icon">🌅</div>
-                    <h3>朝活</h3>
-                    <p>朝の時間を活用した勉強会・交流会。生産性の高い環境で自分を高めながら人脈を広げられます。</p>
+                <div class="event-type-card-photo">
+                    <img src="../images/event-morning.jpg" alt="朝カフェ会の様子">
+                    <div class="card-text">
+                        <h3>朝カフェ会</h3>
+                        <p>朝の時間を活用した交流会。気持ちいい朝の時間を共有しながら人脈を広げられます。</p>
+                    </div>
                 </div>
-                <div class="event-type-card">
-                    <div class="event-type-icon">🎲</div>
-                    <h3>ボードゲーム会</h3>
-                    <p>ゲームを通じて自然に仲良くなれる場。堅苦しくない雰囲気で気軽に参加できます。</p>
+                <div class="event-type-card-photo">
+                    <img src="../images/event-boardgame.jpg" alt="ボードゲーム会の様子">
+                    <div class="card-text">
+                        <h3>ボードゲーム会</h3>
+                        <p>ゲームを通じて自然に仲良くなれる場。堅苦しくない雰囲気で気軽に参加できます。</p>
+                    </div>
                 </div>
-                <div class="event-type-card">
-                    <div class="event-type-icon">🍻</div>
-                    <h3>飲み会・懇親会</h3>
-                    <p>カジュアルな雰囲気で気軽に交流。リラックスした環境で新しい出会いが生まれます。</p>
-                </div>
-                <div class="event-type-card">
-                    <div class="event-type-icon">💻</div>
-                    <h3>IT交流会</h3>
-                    <p>エンジニア・デザイナー同士の技術交流。最新の技術情報の共有と専門分野での人脈構築。</p>
-                </div>
-                <div class="event-type-card">
-                    <div class="event-type-icon">🎉</div>
-                    <h3>季節イベント</h3>
-                    <p>花見、BBQ、忘年会などの季節行事。季節の楽しさを通じて、みんなで交流できます。</p>
+                <div class="event-type-card-photo">
+                    <img src="../images/event-takibi.jpg" alt="焚き火ケーションの様子">
+                    <div class="card-text">
+                        <h3>焚き火ケーション</h3>
+                        <p>焚き火を囲みながらゆっくり交流。非日常の空間でリラックスしてつながれます。</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Track Record Section -->
+    <section class="track-record-section">
+        <div class="section-inner">
+            <div class="track-record-header">
+                <h2>開催実績</h2>
+                <p>これまでに開催したイベントの実績データ</p>
+            </div>
+
+            <div class="track-record-summary">
+                <div class="summary-stat">
+                    <div class="number">5種類</div>
+                    <div class="label">イベント種別</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="number">97回</div>
+                    <div class="label">累計開催回数</div>
+                </div>
+                <div class="summary-stat">
+                    <div class="number">831名</div>
+                    <div class="label">累計参加者数</div>
+                </div>
+            </div>
+
+            <!-- カフェ会 -->
+            <div class="event-history-group">
+                <h3>☕ カフェ会（全21回）</h3>
+                <table class="history-table">
+                    <thead><tr><th>回</th><th>開催日</th><th>参加人数</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>2021/9/18</td><td>8</td></tr>
+                        <tr><td>2</td><td>2021/10/30</td><td>8</td></tr>
+                        <tr><td>3</td><td>2021/11/20</td><td>10</td></tr>
+                        <tr><td>4</td><td>2021/12/11</td><td>8</td></tr>
+                        <tr><td>5</td><td>2022/1/29</td><td>8</td></tr>
+                        <tr><td>6</td><td>2022/2/19</td><td>7</td></tr>
+                        <tr><td>7</td><td>2022/3/26</td><td>11</td></tr>
+                        <tr><td>8</td><td>2022/4/23</td><td>6</td></tr>
+                        <tr><td>9</td><td>2022/5/21</td><td>7</td></tr>
+                        <tr><td>10</td><td>2022/6/25</td><td>11</td></tr>
+                        <tr><td>11</td><td>2022/7/23</td><td>6</td></tr>
+                        <tr><td>12</td><td>2022/8/20</td><td>9</td></tr>
+                        <tr><td>13</td><td>2022/10/29</td><td>6</td></tr>
+                        <tr><td>14</td><td>2022/11/26</td><td>4</td></tr>
+                        <tr><td>15</td><td>2023/2/4</td><td>9</td></tr>
+                        <tr><td>16</td><td>2024/5/15</td><td>4</td></tr>
+                        <tr><td>17</td><td>2024/7/13</td><td>8</td></tr>
+                        <tr><td>18</td><td>2024/9/7</td><td>11</td></tr>
+                        <tr><td>19</td><td>2024/10/5</td><td>8</td></tr>
+                        <tr><td>20</td><td>2024/11/9</td><td>12</td></tr>
+                        <tr><td>21</td><td>2024/12/7</td><td>8</td></tr>
+                    </tbody>
+                    <tfoot><tr><td colspan="2">合計</td><td>169名</td></tr></tfoot>
+                </table>
+            </div>
+
+            <!-- 朝カフェ会 -->
+            <div class="event-history-group">
+                <h3>🌅 金曜日の朝カフェ会（全40回）</h3>
+                <table class="history-table monthly-table">
+                    <thead><tr><th>期間</th><th>開催回数</th><th>参加人数</th></tr></thead>
+                    <tbody>
+                        <tr><td colspan="3" style="background:#f0e6f6;font-weight:600;color:#8e44ad;">2021年</td></tr>
+                        <tr><td>3月</td><td>4回</td><td>0</td></tr>
+                        <tr><td>4月</td><td>5回</td><td>17</td></tr>
+                        <tr><td>5月</td><td>4回</td><td>22</td></tr>
+                        <tr><td>6月</td><td>4回</td><td>17</td></tr>
+                        <tr><td>7月</td><td>4回</td><td>19</td></tr>
+                        <tr><td>8月</td><td>3回</td><td>11</td></tr>
+                        <tr><td>9月</td><td>4回</td><td>14</td></tr>
+                        <tr><td>10月</td><td>4回</td><td>18</td></tr>
+                        <tr><td>11月</td><td>3回</td><td>11</td></tr>
+                        <tr><td>12月</td><td>2回</td><td>9</td></tr>
+                        <tr><td colspan="3" style="background:#f0e6f6;font-weight:600;color:#8e44ad;">2022年</td></tr>
+                        <tr><td>7/22</td><td>1回</td><td>6</td></tr>
+                        <tr><td>8/26</td><td>1回</td><td>6</td></tr>
+                        <tr><td colspan="3" style="background:#f0e6f6;font-weight:600;color:#8e44ad;">2024年</td></tr>
+                        <tr><td>4/19</td><td>1回</td><td>3</td></tr>
+                    </tbody>
+                    <tfoot><tr><td>合計</td><td>40回</td><td>153名</td></tr></tfoot>
+                </table>
+            </div>
+
+            <!-- オンライン交流会 -->
+            <div class="event-history-group">
+                <h3>💻 人脈作り交流会【オンライン】（全16回）</h3>
+                <table class="history-table online-table">
+                    <thead><tr><th>回</th><th>開催日</th><th>参加人数</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>2021/5/11</td><td>18</td></tr>
+                        <tr><td>2</td><td>2021/5/18</td><td>13</td></tr>
+                        <tr><td>3</td><td>2021/5/25</td><td>16</td></tr>
+                        <tr><td>4</td><td>2021/6/1</td><td>15</td></tr>
+                        <tr><td>5</td><td>2021/6/8</td><td>19</td></tr>
+                        <tr><td>6</td><td>2021/6/15</td><td>25</td></tr>
+                        <tr><td>7</td><td>2021/6/22</td><td>12</td></tr>
+                        <tr><td>8</td><td>2021/6/29</td><td>13</td></tr>
+                        <tr><td>9</td><td>2021/7/6</td><td>12</td></tr>
+                        <tr><td>10</td><td>2021/7/13</td><td>14</td></tr>
+                        <tr><td>11</td><td>2021/7/20</td><td>11</td></tr>
+                        <tr><td>12</td><td>2021/8/3</td><td>15</td></tr>
+                        <tr><td>13</td><td>2021/8/10</td><td>18</td></tr>
+                        <tr><td>14</td><td>2021/8/24</td><td>16</td></tr>
+                        <tr><td>15</td><td>2021/8/31</td><td>21</td></tr>
+                        <tr><td>16</td><td>2024/5/14</td><td>22</td></tr>
+                    </tbody>
+                    <tfoot><tr><td colspan="2">合計</td><td>280名</td></tr></tfoot>
+                </table>
+            </div>
+
+            <!-- ボードゲーム会 -->
+            <div class="event-history-group">
+                <h3>🎲 ボードゲーム会（全9回）</h3>
+                <table class="history-table">
+                    <thead><tr><th>回</th><th>開催日</th><th>参加人数</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>2022/3/19</td><td>12</td></tr>
+                        <tr><td>2</td><td>2022/4/17</td><td>5</td></tr>
+                        <tr><td>3</td><td>2022/5/22</td><td>11</td></tr>
+                        <tr><td>4</td><td>2022/7/17</td><td>10</td></tr>
+                        <tr><td>5</td><td>2022/8/28</td><td>7</td></tr>
+                        <tr class="cancelled-row"><td>6</td><td>2022/9/25</td><td>中止</td></tr>
+                        <tr><td>7</td><td>2022/10/15</td><td>9</td></tr>
+                        <tr class="cancelled-row"><td>8</td><td>2022/11/19</td><td>中止</td></tr>
+                        <tr><td>9</td><td>2023/2/19</td><td>7</td></tr>
+                    </tbody>
+                    <tfoot><tr><td colspan="2">合計（開催回のみ）</td><td>61名</td></tr></tfoot>
+                </table>
+            </div>
+
+            <!-- 焚き火ケーション -->
+            <div class="event-history-group">
+                <h3>🔥 焚き火ケーション（全13回）</h3>
+                <table class="history-table fire-table">
+                    <thead><tr><th>回</th><th>開催日</th><th>参加人数</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>2021/10/24</td><td>20</td></tr>
+                        <tr><td>2</td><td>2021/11/14</td><td>10</td></tr>
+                        <tr><td>3</td><td>2021/11/21</td><td>12</td></tr>
+                        <tr><td>4</td><td>2021/12/5</td><td>13</td></tr>
+                        <tr><td>5</td><td>2022/1/22</td><td>9</td></tr>
+                        <tr><td>6</td><td>2022/2/26</td><td>18</td></tr>
+                        <tr><td>7</td><td>2022/3/19</td><td>14</td></tr>
+                        <tr><td>8</td><td>2022/4/16</td><td>10</td></tr>
+                        <tr><td>9</td><td>2022/5/28</td><td>10</td></tr>
+                        <tr><td>10</td><td>2022/6/26</td><td>16</td></tr>
+                        <tr><td>11</td><td>2022/7/30</td><td>21</td></tr>
+                        <tr><td>12</td><td>2022/8/27</td><td>9</td></tr>
+                        <tr><td>13</td><td>2022/9/24</td><td>6</td></tr>
+                    </tbody>
+                    <tfoot><tr><td colspan="2">合計</td><td>168名</td></tr></tfoot>
+                </table>
+            </div>
+
         </div>
     </section>
 
